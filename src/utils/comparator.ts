@@ -1,9 +1,23 @@
-import { ComparatorFunction } from "@/types";
+/**
+ * Comparator function type.
+ *
+ * @param {Item} left
+ * @param {Item} right
+ * @returns {number}
+ * -1 if left is less than right.
+ * 0 if left is equal to right.
+ * 1 if left is greater than right.
+ *
+ */
+export type ComparatorFunction<Item> = (
+  left: Item,
+  right: Item
+) => number | 1 | -1 | 0;
 
-export class Comparator<Element> {
-  private _comparator: ComparatorFunction<Element>;
+export class Comparator<Item> {
+  private _comparator: ComparatorFunction<Item>;
 
-  constructor(comparator?: ComparatorFunction<Element>) {
+  constructor(comparator?: ComparatorFunction<Item>) {
     // Use default comparator function if no comparator is provided.
     this._comparator = comparator || Comparator.naturalOrder();
   }
@@ -13,7 +27,7 @@ export class Comparator<Element> {
    * Returns zero if left is equal to right.
    * Returns a positive value if left is greater than right.
    */
-  public compare(left: Element, right: Element): number {
+  public compare(left: Item, right: Item): number {
     return this._comparator(left, right);
   }
 
@@ -23,7 +37,7 @@ export class Comparator<Element> {
    * @param right
    * @returns true if the variables are equal.
    */
-  public equal(left: Element, right: Element): boolean {
+  public equal(left: Item, right: Item): boolean {
     return this.compare(left, right) === 0;
   }
 
@@ -33,7 +47,7 @@ export class Comparator<Element> {
    * @param right
    * @returns true if the left is less than the right.
    */
-  public lessThan(left: Element, right: Element): boolean {
+  public lessThan(left: Item, right: Item): boolean {
     return this.compare(left, right) < 0;
   }
 
@@ -43,7 +57,7 @@ export class Comparator<Element> {
    * @param right
    * @returns true if the left is greater than the right.
    */
-  public greaterThan(left: Element, right: Element): boolean {
+  public greaterThan(left: Item, right: Item): boolean {
     return this.compare(left, right) > 0;
   }
 
@@ -53,7 +67,7 @@ export class Comparator<Element> {
    * @param right
    * @returns true if left is less than or equal right.
    */
-  public lessThanOrEqual(left: Element, right: Element): boolean {
+  public lessThanOrEqual(left: Item, right: Item): boolean {
     return this.lessThan(left, right) || this.equal(left, right);
   }
 
@@ -63,7 +77,7 @@ export class Comparator<Element> {
    * @param right
    * @returns true if left is greater than or equal right.
    */
-  public greaterThanOrEqual(left: Element, right: Element): boolean {
+  public greaterThanOrEqual(left: Item, right: Item): boolean {
     return this.greaterThan(left, right) || this.equal(left, right);
   }
 
@@ -71,8 +85,8 @@ export class Comparator<Element> {
    * Returns an natural comparator function.
    * @returns function.
    */
-  static naturalOrder<Element>(): ComparatorFunction<Element> {
-    return (left: Element, right: Element) => {
+  static naturalOrder<Item>(): ComparatorFunction<Item> {
+    return (left: Item, right: Item) => {
       return left < right ? -1 : left > right ? 1 : 0;
     };
   }
@@ -81,15 +95,15 @@ export class Comparator<Element> {
    * Returns an natural but reversed comparator function.
    * @returns function.
    */
-  static reverseOrder<Element>(): ComparatorFunction<Element> {
-    return (left: Element, right: Element) => {
+  static reverseOrder<Item>(): ComparatorFunction<Item> {
+    return (left: Item, right: Item) => {
       return left < right ? 1 : left > right ? -1 : 0;
     };
   }
 
   /**
    * Returns a comparator function that compares two object properties.
-   * @param keyExtractor - Element
+   * @param keyExtractor - Item
    * @param keyComparator - optional custom comparator that by default is natural order.
    * @returns comparator function.
    * @example
@@ -100,11 +114,11 @@ export class Comparator<Element> {
    * comparator.equal("a", "b") // true
    * ```
    */
-  public static comparing<Element, Property>(
-    keyExtractor: (element: Element) => Property,
+  public static comparing<Item, Property>(
+    keyExtractor: (item: Item) => Property,
     keyComparator: ComparatorFunction<Property> = Comparator.naturalOrder()
-  ): ComparatorFunction<Element> {
-    return (left: Element, right: Element): number => {
+  ): ComparatorFunction<Item> {
+    return (left: Item, right: Item): number => {
       return keyComparator(keyExtractor(left), keyExtractor(right));
     };
   }

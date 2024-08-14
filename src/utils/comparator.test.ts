@@ -1,4 +1,4 @@
-import Comparator from "./comparator";
+import { Comparator } from "./comparator";
 
 type Category = {
   priority: number;

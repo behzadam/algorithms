@@ -1,1 +1,4 @@
-export type Nullable<TData> = TData | null | undefined;
+/**
+ * Nullable type definition.
+ */
+export type Nullable<T> = T | null;

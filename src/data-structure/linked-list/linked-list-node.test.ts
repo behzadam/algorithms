@@ -1,4 +1,4 @@
-import LinkedListNode from "./linked-list-node";
+import { LinkedListNode } from "./linked-list-node";
 
 type Item = { key: number; value: string };
 let item: Item;
