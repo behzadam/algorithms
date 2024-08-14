@@ -1,6 +1,12 @@
-import Queue from "./queue";
+import { Queue } from "./queue";
 
 describe("Queue", () => {
+  it("creates empty queue", () => {
+    const queue = new Queue();
+    expect(queue).not.toBeNull();
+    expect(queue.list).not.toBeNull();
+  });
+
   it("enqueues data to queue", () => {
     const queue = new Queue();
 
@@ -10,21 +16,17 @@ describe("Queue", () => {
     expect(queue.toString()).toBe("1,2");
   });
 
-  it("enqueues/dequeues  objects", () => {
-    type User = {
-      id: string;
-      name: string;
-    };
-    const queue = new Queue<User>();
+  it("enqueue/dequeue objects", () => {
+    const queue = new Queue<{ key: string; value: string }>();
 
-    queue.enqueue({ name: "test1", id: "key1" } as User);
-    queue.enqueue({ name: "test2", id: "key2" } as User);
+    queue.enqueue({ value: "test1", key: "key1" });
+    queue.enqueue({ value: "test2", key: "key2" });
 
-    const stringifier = (user: User) => `${user.id}:${user.name}`;
-
+    const stringifier = (value: { key: string; value: string }) =>
+      `${value.key}:${value.value}`;
     expect(queue.toString(stringifier)).toBe("key1:test1,key2:test2");
-    expect(queue.dequeue()?.name).toBe("test1");
-    expect(queue.dequeue()?.name).toBe("test2");
+    expect(queue.dequeue()?.value).toBe("test1");
+    expect(queue.dequeue()?.value).toBe("test2");
   });
 
   it("peeks data from queue", () => {
@@ -39,11 +41,13 @@ describe("Queue", () => {
     expect(queue.peek()).toBe(1);
   });
 
-  it("checks if queue is empty", () => {
+  it("checkes if queue is empty", () => {
     const queue = new Queue();
 
     expect(queue.isEmpty()).toBe(true);
+
     queue.enqueue(1);
+
     expect(queue.isEmpty()).toBe(false);
   });
 
