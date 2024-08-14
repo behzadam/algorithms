@@ -100,7 +100,7 @@ export default class Comparator<Element> {
    * ```
    * @beta
    */
-  static comparing<Element, Property>(
+  public static comparing<Element, Property>(
     keyExtractor: (element: Element) => Property,
     keyComparator: ComparatorFunction<Property> = Comparator.naturalOrder()
   ): ComparatorFunction<Element> {
