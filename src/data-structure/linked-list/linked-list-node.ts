@@ -1,9 +1,7 @@
-import { Nullable } from "@/types";
-
 export class LinkedListNode<Item> {
   constructor(
     public value: Item,
-    public next: Nullable<LinkedListNode<Item>> = null
+    public next: LinkedListNode<Item> | null = null
   ) {}
 
   toString(callback?: (value: Item) => string): string {

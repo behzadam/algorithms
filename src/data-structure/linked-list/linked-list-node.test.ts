@@ -1,10 +1,7 @@
 import { LinkedListNode } from "./linked-list-node";
 
 type Item = { key: number; value: string };
-let item: Item;
-beforeAll(() => {
-  item = { key: 1, value: "test" };
-});
+let item: Item = { key: 1, value: "test" };
 
 describe("LinkedListNode", () => {
   it("creates list node with value", () => {
