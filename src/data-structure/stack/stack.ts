@@ -1,19 +1,12 @@
-import LinkedList from "@/linked-list/linked-list";
-import { Nullable } from "@/types";
+import { LinkedList } from "@/data-structure/linked-list/linked-list";
 
 /**
- * A stack is a linear data structure that follows the Last In First Out (LIFO) principle.
- * This means that the last element added to the stack will be the first one to be removed.
- * The two main operations performed on a stack are push,
- * which adds an element to the top of the stack, and pop, which removes the top element from the stack.
- * Other operations include peek, which returns the top element without removing it,
- * and isEmpty, which checks if the stack is empty. Stacks are commonly used in programming languages,
- * compilers, and operating systems.
+ * Stack data structure.
  */
-export default class Stack<Element> {
-  private list: LinkedList<Element>;
+export class Stack<Item> {
+  public list: LinkedList<Item>;
   constructor() {
-    this.list = new LinkedList<Element>();
+    this.list = new LinkedList<Item>();
   }
 
   /**
@@ -25,25 +18,28 @@ export default class Stack<Element> {
   }
 
   /**
-   * Returns the top of the stack without deleting it or null if stack is empty.
+   * Returns element at the top of the stack without removing it.
+   * @returns element or null if stack is empty.
    */
-  public peek(): Nullable<Element> {
+  public peek(): Item | null {
     if (this.isEmpty()) return null;
-    return this.list.head?.value;
+    return this.list.head?.value ?? null;
   }
 
   /**
-   * Adds element to top of the stack.
+   * Adds element to the top of the stack.
+   * @param element
    */
-  public push(element: Element): void {
-    this.list.prepend(element);
+  public push(item: Item) {
+    this.list.prepend(item);
   }
 
   /**
-   * Removes the top of the stack.
+   * Removes element at the top of the stack.
+   * @returns element or null if stack is empty.
    */
-  public pop(): Nullable<Element> {
-    const removedElement = this.list.shift();
+  public pop(): Item | null {
+    const removedElement = this.list.deleteHead();
     return removedElement ? removedElement.value : null;
   }
 
@@ -51,7 +47,7 @@ export default class Stack<Element> {
    * Returns array of all elements in the stack.
    * @returns array of elements or empty array if stack is empty.
    */
-  public toArray(): Array<Element> {
+  public toArray(): Array<Item> {
     return this.list.toArray().map((item) => item.value);
   }
 
@@ -60,7 +56,7 @@ export default class Stack<Element> {
    * @param callback Optional callbacl function.
    * @returns string
    */
-  public toString(callback?: (value: Element) => string): string {
+  public toString(callback?: (value: Item) => string): string {
     return this.list.toString(callback);
   }
 }

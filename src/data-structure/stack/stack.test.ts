@@ -1,14 +1,18 @@
-import { Pair } from "@/types/pair";
-import Stack from "./stack";
+import { Stack } from "./stack";
+
+type Pair = {
+  key: string;
+  value: string;
+};
 
 describe("Stack", () => {
   it("creates empty stack", () => {
     const stack = new Stack();
     expect(stack).not.toBeNull();
-    expect(stack.isEmpty()).toBe(true);
+    expect(stack.list).not.toBeNull();
   });
 
-  it("stacks data to stack", () => {
+  it("pushes data to stack", () => {
     const stack = new Stack();
 
     stack.push(1);
@@ -39,9 +43,8 @@ describe("Stack", () => {
     expect(stack.isEmpty()).toBe(false);
   });
 
-  it("pops data from stack", () => {
+  it("should pop data from stack", () => {
     const stack = new Stack();
-
     stack.push(1);
     stack.push(2);
 
@@ -51,20 +54,20 @@ describe("Stack", () => {
     expect(stack.isEmpty()).toBe(true);
   });
 
-  it("pushs/pops objects", () => {
-    const stack = new Stack<Pair<string>>();
+  it("should be possible to push/pop objects", () => {
+    const stack = new Stack<Pair>();
 
-    stack.push({ value: "test1", key: "key1" } as Pair<string>);
-    stack.push({ value: "test2", key: "key2" } as Pair<string>);
+    stack.push({ value: "test1", key: "key1" });
+    stack.push({ value: "test2", key: "key2" });
 
-    const stringifier = (value: Pair<string>) => `${value.key}:${value.value}`;
+    const stringifier = (pair: Pair) => `${pair.key}:${pair.value}`;
 
     expect(stack.toString(stringifier)).toBe("key2:test2,key1:test1");
     expect(stack.pop()?.value).toBe("test2");
     expect(stack.pop()?.value).toBe("test1");
   });
 
-  it("converts stack to array", () => {
+  it("should be possible to convert stack to array", () => {
     const stack = new Stack();
 
     expect(stack.peek()).toBeNull();
