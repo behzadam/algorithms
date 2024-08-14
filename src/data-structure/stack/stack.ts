@@ -1,4 +1,4 @@
-import { LinkedList } from "@/data-structure/linked-list/linked-list";
+import { LinkedList } from "@/data-structure/linked-list";
 
 /**
  * Stack data structure.
