@@ -1,49 +1,44 @@
-import LinkedList from "@/linked-list/linked-list";
-import { Nullable } from "@/types";
+import { LinkedList } from "@/data-structure/linked-list";
 
 /**
- * A Queue is defined as a linear data structure that
- * is open at both ends and the operations are performed
- * in First In First Out (FIFO) order.
- *
- * This queue is based on the LinkedList because
- * they are quite similar.
+ * A queue is a linear data structure that follows the First In First Out (FIFO) principle.
  */
-export default class Queue<Element> {
-  private list: LinkedList<Element>;
+export class Queue<Item> {
+  public list: LinkedList<Item>;
+
   constructor() {
-    this.list = new LinkedList<Element>();
+    this.list = new LinkedList<Item>();
   }
 
   /**
-   * Removes an element at front of the queue.
-   * @returns null or element.
+   * Removes the item at the front of the queue and returns it.
+   * @returns the removed item or null if queue is empty.
    */
-  public dequeue(): Nullable<Element> {
-    const removed = this.list.shift();
+  public dequeue(): Item | null {
+    const removed = this.list.deleteHead();
     return removed ? removed.value : null;
   }
 
   /**
-   * Adds an element to the end of the queue.
-   * @param value
+   * Adds an item to the end of the queue.
+   * @param item to be added.
    */
-  public enqueue(value: Element): void {
-    this.list.append(value);
+  public enqueue(item: Item) {
+    this.list.append(item);
   }
 
   /**
-   * Returns the element at front of the queue whitout removing it.
-   * @returns null or element.
+   * Returns the item at front of the queue whitout removing it.
+   * @returns null or item.
    */
-  public peek(): Nullable<Element> {
+  public peek(): Item | null {
     if (this.isEmpty()) return null;
-    return this.list.head?.value;
+    return this.list.head?.value ?? null;
   }
 
   /**
    * Checks if queue is empty or not.
-   * @returns
+   * @returns true or false.
    */
   public isEmpty(): boolean {
     return !this.list.head;
@@ -52,9 +47,9 @@ export default class Queue<Element> {
   /**
    * Returns comma separate string form the queue.
    * @param callback optional callback function.
-   * @returns string
+   * @returns string form of the queue or empty string.
    */
-  public toString(callback?: (value: Element) => string): string {
+  public toString(callback?: (value: Item) => string): string {
     return this.list.toString(callback);
   }
 }
