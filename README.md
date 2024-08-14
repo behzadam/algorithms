@@ -10,20 +10,26 @@ This repository is a collection of TypeScript algorithms and data structures. It
 
 It includes code and patterns from the "JavaScript Algorithms" repository, translated from JavaScript to TypeScript. [JavaScript Algorithms](https://github.com/trekhleb/javascript-algorithms)
 
-### Data structure
+## Data structure
+
+- [HashTable](src/data-structure/hash-table/hash-table.ts)
+- [MinHeap](src/data-structure/heap/min-heap.ts)
+- [MaxHeap](src/data-structure/heap/max-heap.ts)
+- [LinkedList](src/data-structure/linked-list/linked-list.ts)
+- [Queue](src/data-structure/queue/queue.ts)
+- [Stack](src/data-structure/stack/stack.ts)
+- [MaxPriorityQueue](src/data-structure/priority-queue/max-priority-queue.ts)
+- [MinPriorityQueue](src/data-structure/priority-queue/min-priority-queue.ts)
+- [Trie](src/data-structure/trie/trie.ts)
+
+## Algorithms
+
+- [BinarySearch](src/algorithms/search/binary-search/binary-search.ts)
+- [LinearSearch](src/algorithms/search/linear-search/linear-search.ts)
+
+## Utils
 
 - [Comparator](src/ds/comparator/comparator.ts)
-- [HashTable](src/ds/hash-table/hash-table.ts)
-- [MinHeap](src/ds/heap/min-heap.ts)
-- [MaxHeap](src/ds/heap/max-heap.ts)
-- [LinkedList](src/ds/linked-list/linked-list.ts)
-- [Queue](src/ds/queue/queue.ts)
-- [Stack](src/ds/stack/stack.ts)
-- [MaxPriorityQueue](src/ds/priority-queue/max-priority-queue.ts)
-- [MinPriorityQueue](src/ds/priority-queue/min-priority-queue.ts)
-- [Trie](src/ds/trie/trie.ts)
-- [BinarySearch](src/ds/ds/binary-search/binary-search.ts)
-- [LinearSearch](src/ds/linear-search/linear-search.ts)
 
 Please note that the repository is still a work in progress, and new algorithms and patterns will be added over time.
 
