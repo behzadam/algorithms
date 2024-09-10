@@ -1,5 +1,4 @@
-import { ComparatorFunction, Nullable } from "@/types";
-import { Comparator } from "@/utils";
+import { Comparator, ComparatorFunction } from "@/utils";
 
 /**
  * This class is a base class for Heap.
@@ -197,7 +196,7 @@ export default abstract class Heap<Item> {
    * Returns the top item without removing it.
    * @returns
    */
-  public peek(): Nullable<Item> {
+  public peek(): Item | null {
     if (this.size() === 0) return null;
     return this.heap[0];
   }
@@ -206,14 +205,17 @@ export default abstract class Heap<Item> {
    * Retrieves and removes the head of this queue, or returns null if this queue is empty.
    * @returns - head item or null.
    */
-  public poll(): Nullable<Item> {
+  public poll(): Item | null {
     if (this.size() === 0) return null;
-    if (this.size() === 1) return this.heap.pop();
+    if (this.size() === 1) return this.heap.pop() ?? null;
 
     const item = this.heap[0];
     // Move the last element from the end to the head.
-    this.heap[0] = this.heap.pop() as Item;
-    this.heapifyDown();
+    const lastItem = this.heap.pop();
+    if (lastItem !== undefined) {
+      this.heap[0] = lastItem;
+      this.heapifyDown();
+    }
 
     return item;
   }
