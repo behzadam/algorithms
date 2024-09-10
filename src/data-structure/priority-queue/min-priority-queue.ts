@@ -1,5 +1,5 @@
-import Comparator from "@/comparator/comparator";
-import MinHeap from "../heap/min-heap";
+import { Comparator } from "@/utils/comparator";
+import { MinHeap } from "../heap/min-heap";
 
 /**
  * A min priority queue is a data structure that stores a collection of elements
@@ -20,7 +20,7 @@ export default class MinPriorityQueue<Item> extends MinHeap<Item> {
   constructor() {
     super();
     this.queue = new Map<Item, number>();
-    this.compare = new Comparator(this.internalComparator.bind(this));
+    this.comparator = new Comparator(this.internalComparator.bind(this));
   }
 
   /**

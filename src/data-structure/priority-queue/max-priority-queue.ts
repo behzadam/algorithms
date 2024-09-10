@@ -1,5 +1,5 @@
-import Comparator from "@/comparator/comparator";
-import { MaxHeap } from "..";
+import { Comparator } from "@/utils/comparator";
+import { MaxHeap } from "../heap";
 
 /**
  * A max priority queue is a data structure that stores a collection of elements
@@ -18,7 +18,7 @@ export default class MaxPriorityQueue<Item> extends MaxHeap<Item> {
   constructor() {
     super();
     this.queue = new Map<Item, number>();
-    this.compare = new Comparator(this.internalComparator.bind(this));
+    this.comparator = new Comparator(this.internalComparator.bind(this));
   }
 
   /**

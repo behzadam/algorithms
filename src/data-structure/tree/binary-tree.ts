@@ -1,5 +1,10 @@
 import { Nullable } from "@/types";
 
+/**
+ * Represents a node in a binary tree data structure.
+ *
+ * @template Value - The type of the value stored in the node.
+ */
 export class BinaryTree<Value> {
   value: Value;
   left: Nullable<BinaryTree<Value>>;
