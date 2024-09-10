@@ -6,7 +6,7 @@ const HEAD_CHARACTER = "*";
 
 /**
  * Trie is a sorted tree-based that usually implements by HastTable.
- * @beta
+ * 
  */
 export default class Trie {
   public head: TrieNode;
@@ -95,7 +95,7 @@ export default class Trie {
    */
   suggestNextCharacters(word: string): Nullable<string[]> {
     const lastCharacter = this.getLeaf(word);
-    return lastCharacter?.suggestChildren();
+    return lastCharacter?.suggestChildren() ?? null;
   }
 
   /**
