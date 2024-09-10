@@ -1,10 +1,9 @@
-import HashTable from "@/hash-table/hash-table";
+import { HashTable } from "@/data-structure/hash-table";
 import { Nullable } from "@/types";
 
 /**
  * This class uses Map to implement children and
  * it may would change.
- * @alpha
  */
 export default class TrieNode {
   public character: string;
