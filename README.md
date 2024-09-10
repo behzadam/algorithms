@@ -24,8 +24,14 @@ It includes code and patterns from the "JavaScript Algorithms" repository, trans
 
 ## Algorithms
 
+### Search
+
 - [BinarySearch](src/algorithms/search/binary-search/binary-search.ts)
 - [LinearSearch](src/algorithms/search/linear-search/linear-search.ts)
+
+### Sort
+
+- [QuickSort](src/algorithms/sort/quick-sort/quick-sort.ts)
 
 ## Utils
 
