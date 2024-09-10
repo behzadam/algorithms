@@ -1,5 +1,5 @@
-import { Comparator } from "@/comparator";
-import linearSearch from "../linear-search";
+import { Comparator } from "@/utils/comparator";
+import linearSearch from "./linear-search";
 
 describe("linearSearch", () => {
   it("searches all numbers in array", () => {

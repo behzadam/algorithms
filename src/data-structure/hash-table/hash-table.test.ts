@@ -1,4 +1,4 @@
-import HashTable from "./hash-table";
+import { HashTable } from "./hash-table";
 
 describe("HashTable", () => {
   it("creates hash table of certain size", () => {

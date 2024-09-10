@@ -1,4 +1,4 @@
-import { Comparator } from "../../../data-structure/comparator";
+import { Comparator } from "@/utils/comparator";
 import { binarySearch } from "./binary-search";
 
 describe("binarySearch", () => {
@@ -31,10 +31,9 @@ describe("binarySearch", () => {
     //   return a.key < b.key ? -1 : 1;
     // };
 
-    expect(binarySearch([], { key: 1 }, comparator)).toBe(-1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 4 }, comparator)).toBe(-1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 1 }, comparator)).toBe(0);
-    expect(binarySearch(sortedArrayOfObjects, { key: 2 }, comparator)).toBe(1);
-    expect(binarySearch(sortedArrayOfObjects, { key: 3 }, comparator)).toBe(2);
-  });
-});
+    expect(binarySearch([], { key: 1, value: "" }, comparator)).toBe(-1);
+    expect(binarySearch(sortedArrayOfObjects, { key: 4, value: "" }, comparator)).toBe(-1);
+    expect(binarySearch(sortedArrayOfObjects, { key: 1, value: "" }, comparator)).toBe(0);
+    expect(binarySearch(sortedArrayOfObjects, { key: 2, value: "" }, comparator)).toBe(1);
+    expect(binarySearch(sortedArrayOfObjects, { key: 3, value: "" }, comparator)).toBe(2);
+  });});

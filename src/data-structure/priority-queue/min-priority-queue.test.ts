@@ -1,4 +1,4 @@
-import MinPriorityQueue from "../min-priority-queue";
+import MinPriorityQueue from "./min-priority-queue";
 
 describe("PriorityQueue", () => {
   it("creates default priority queue", () => {
