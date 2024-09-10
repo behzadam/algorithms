@@ -1,5 +1,5 @@
-import { Comparator } from "@/utils";
 import { Pair } from "@/types/pair";
+import { Comparator } from "@/utils";
 import { LinkedList } from "../linked-list/";
 
 /**
@@ -48,7 +48,7 @@ export class HashTable<Value> {
 
     const bucketLinkedList = this.buckets[index];
     const node = bucketLinkedList.find({
-      filter: (item) => item.key === key,
+      callback: (item) => item.key === key,
     });
 
     if (!node) {
@@ -71,7 +71,7 @@ export class HashTable<Value> {
     const index = this.hash(key);
     const bucketLinkedList = this.buckets[index];
     const node = bucketLinkedList.find({
-      filter: (item) => item.key === key,
+      callback: (item) => item.key === key,
     });
 
     if (node) {
@@ -92,11 +92,11 @@ export class HashTable<Value> {
 
     const bucketLinkedList = this.buckets[index];
     const node = bucketLinkedList.find({
-      filter: (item) => item.key === key,
+      callback: (item) => item.key === key,
     });
 
     if (node) {
-      return bucketLinkedList.remove(node.value);
+      return bucketLinkedList.delete(node.value);
     }
 
     return null;
