@@ -93,9 +93,9 @@ export default class Trie {
    * @param word
    * @returns null or array of string.
    */
-  public suggestNextCharacters(word: string): Nullable<string[]> {
+  public suggestNextCharacters(word: string): string[] | undefined {
     const lastCharacter = this.getLeaf(word);
-    return lastCharacter?.suggestChildren() ?? null;
+    return lastCharacter?.suggestChildren();
   }
 
   /**
