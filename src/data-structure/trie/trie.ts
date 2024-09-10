@@ -6,7 +6,7 @@ const HEAD_CHARACTER = "*";
 
 /**
  * Trie is a sorted tree-based that usually implements by HastTable.
- * 
+ *
  */
 export default class Trie {
   public head: TrieNode;
@@ -37,7 +37,7 @@ export default class Trie {
    * @param word
    * @returns an instance of current Trie.
    */
-  add(word: string): Trie {
+  public add(word: string): Trie {
     const characters = Array.from(word);
 
     let currentNode = this.head;
@@ -54,7 +54,7 @@ export default class Trie {
    * @param word
    * @returns an instance of current Trie.
    */
-  remove(word: string) {
+  public remove(word: string) {
     const depthFirstDelete = (currentNode: TrieNode, charIndex = 0) => {
       if (charIndex >= word.length) {
         // Return if we're trying to delete the character that is out of word's scope.
@@ -93,7 +93,7 @@ export default class Trie {
    * @param word
    * @returns null or array of string.
    */
-  suggestNextCharacters(word: string): Nullable<string[]> {
+  public suggestNextCharacters(word: string): Nullable<string[]> {
     const lastCharacter = this.getLeaf(word);
     return lastCharacter?.suggestChildren() ?? null;
   }
@@ -103,7 +103,7 @@ export default class Trie {
    * @param word
    * @returns
    */
-  isExist(word: string): boolean {
+  public isExist(word: string): boolean {
     const lastCharacter = this.getLeaf(word);
     return isDefined(lastCharacter) && lastCharacter.isWord;
   }
