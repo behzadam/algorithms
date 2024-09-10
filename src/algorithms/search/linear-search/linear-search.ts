@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFunction } from "@/comparator";
+import { Comparator, ComparatorFunction } from "@/utils/comparator";
 
 /**
  * Linear search.

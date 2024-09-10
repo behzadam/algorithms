@@ -1,7 +1,4 @@
-import {
-  Comparator,
-  ComparatorFunction,
-} from "../../../data-structure/comparator";
+import { Comparator, ComparatorFunction } from "@/utils/comparator";
 
 /**
  * Binary search is an efficient algorithm for finding an item from a sorted list of items.
