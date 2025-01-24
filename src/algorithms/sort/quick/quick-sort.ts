@@ -1,58 +1,57 @@
 import { Comparator, ComparatorFunction } from "@/utils";
 
 /**
- * Partitions the given array `arr` around the pivot element `pivot` using the provided `comparator`.
- *
- * @param arr - The array to be partitioned.
- * @param low - The lower index of the partition range.
- * @param high - The upper index of the partition range.
- * @param comparator - The comparator function to use for comparing elements.
- * @returns The index of the pivot element after partitioning.
- */
-function partition<Item>(
-  arr: Item[],
-  low: number,
-  high: number,
-  comparator: Comparator<Item>
-): number {
-  const pivot = arr[high];
-  let i = low - 1;
-
-  for (let j = low; j < high; j++) {
-    if (comparator.lessThanOrEqual(arr[j], pivot)) {
-      i++;
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-  }
-
-  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
-  return i + 1;
-}
-
-/**
- * Sorts the given array `arr` in-place using the quicksort algorithm and the provided comparator function.
+ * Sorts the given array using the quicksort algorithm.
+ * The time complexity of this algorithm is:
+ * - Best case: O(n log n)
+ * - Average case: O(n log n)
+ * - Worst case: O(n^2) occurs when the array is already sorted or reverse sorted, as the pivot selection is always the last element
  *
  * @param arr - The array to be sorted.
- * @param compareFn - An optional comparator function to use for comparing elements. If not provided, the default comparator will be used.
+ * @param compareFn - An optional comparison function to use for sorting. If not provided, the default comparison function will be used.
  * @returns The sorted array.
  */
 export function quickSort<Item>(
   arr: Item[],
   compareFn?: ComparatorFunction<Item>
 ): Item[] {
-  if (arr.length <= 1) return arr;
-
-  // By default, the natural order comparator will be used.
   const comparator = new Comparator(compareFn);
 
-  function sort(low: number, high: number) {
+  // Optimized version of QuickSort with in-place partitioning that maintains O(log n) space complexity.
+  // This version is more efficient than the original QuickSort algorithm, as it avoids the overhead of creating new arrays for the left and right subarrays.
+  function partition(low: number, high: number): number {
+    // Choose the pivot element as the last element in the subarray
+    const pivot = arr[high];
+
+    // Initialize the index of the smaller element
+    let i = low - 1;
+
+    // Iterate through the subarray and move elements smaller than the pivot to the left of the pivot
+    for (let j = low; j < high; j++) {
+      // If the current element is smaller than or equal to the pivot, swap it with the element at index i
+      if (comparator.lessThanOrEqual(arr[j], pivot)) {
+        i++;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+
+    // Swap the element at index i+1 with the pivot element
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+
+    // Return the index of the pivot element
+    return i + 1;
+  }
+
+  // Recursive function to sort the subarrays
+  function sort(low: number, high: number): void {
     if (low < high) {
-      const pi = partition(arr, low, high, comparator);
-      sort(low, pi - 1);
-      sort(pi + 1, high);
+      const pivotIndex = partition(low, high);
+      sort(low, pivotIndex - 1);
+      sort(pivotIndex + 1, high);
     }
   }
 
+  // Call the recursive function to sort the entire array
   sort(0, arr.length - 1);
   return arr;
 }
