@@ -32,6 +32,8 @@ It includes code and patterns from the "JavaScript Algorithms" repository, trans
 ### Sort
 
 - [QuickSort](src/algorithms/sort/quick-sort/quick-sort.ts)
+- [BubbleSort](src/algorithms/sort/bubble-sort/bubble-sort.ts)
+- [BubbleSortSimple](src/algorithms/sort/bubble-sort/bubble-sort-simple.ts)
 
 ## Utils
 
