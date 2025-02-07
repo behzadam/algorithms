@@ -1,11 +1,12 @@
 import { Comparator, ComparatorFunction } from "@/utils";
 
 /**
- * Sorts the given array in-place using the bubble sort algorithm.
+ * Sorts the given array using the bubble sort algorithm.
  *
  * @param arr - The array to be sorted.
  * @param from - The starting index of the array to be sorted (default is 0).
  * @param to - The ending index of the array to be sorted (default is the last index).
+ * @param compareFn - An optional comparison function to use for sorting.
  * @returns The sorted array.
  */
 export function bubbleSort<Element>(
