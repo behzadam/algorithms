@@ -206,7 +206,10 @@ export class LinkedList<Item> {
       }
 
       // If value is specified then try to compare by value..
-      if (value !== undefined && this.comparator.equal(currentNode.value, value)) {
+      if (
+        value !== undefined &&
+        this.comparator.equal(currentNode.value, value)
+      ) {
         return currentNode;
       }
 
