@@ -11,7 +11,7 @@
  * The time complexity of this solution is O(n) because we are using two pointers to traverse the array.
  * The space complexity is O(1) because we are not using any extra space.
  */
-function pairSumSortedBruteForce(arr: number[], target: number) {
+export function pairSumSorted(arr: number[], target: number) {
   let left = 0;
   let right = arr.length - 1;
   while (left < right) {
@@ -32,5 +32,3 @@ function pairSumSortedBruteForce(arr: number[], target: number) {
   }
   return [];
 }
-
-export { pairSumSortedBruteForce };
