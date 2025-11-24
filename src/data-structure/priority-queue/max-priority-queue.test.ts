@@ -1,6 +1,5 @@
 import MaxPriorityQueue from "./max-priority-queue";
 
-
 describe("PriorityQueue", () => {
   it("creates default priority queue", () => {
     const priorityQueue = new MaxPriorityQueue();

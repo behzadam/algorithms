@@ -86,9 +86,7 @@ describe("Comparator", () => {
   });
 
   it("compares two objects with custom comparator function", () => {
-    const productComparator = Comparator.comparing(
-      (product: Product) => product.price
-    );
+    const productComparator = Comparator.comparing((product: Product) => product.price);
     const comparator = new Comparator(productComparator);
     expect(comparator.equal(product1, product2)).toBe(false);
     expect(comparator.greaterThan(product1, product2)).toBe(false);
@@ -120,9 +118,7 @@ describe("Comparator", () => {
   });
 
   it("compares objects using a nested property as key", () => {
-    const nestedComparator = Comparator.comparing(
-      (product: Product) => product.category.priority
-    );
+    const nestedComparator = Comparator.comparing((product: Product) => product.category.priority);
     const comparator = new Comparator(nestedComparator);
     expect(comparator.equal(product1, product2)).toBe(false);
     expect(comparator.greaterThan(product1, product2)).toBe(false);
@@ -131,9 +127,7 @@ describe("Comparator", () => {
   });
 
   it("compares arrays using their length as key", () => {
-    const arrayLengthComparator = Comparator.comparing(
-      (arr: any[]) => arr.length
-    );
+    const arrayLengthComparator = Comparator.comparing((arr: unknown[]) => arr.length);
     const comparator = new Comparator(arrayLengthComparator);
 
     expect(comparator.equal([1, 2], ["a", "b"])).toBe(true);

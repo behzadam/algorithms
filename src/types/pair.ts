@@ -1,4 +1,4 @@
-import { Nullable } from "./nullable";
+import type { Nullable } from "./nullable";
 
 export type Pair<Value> = {
   key: Nullable<string>;

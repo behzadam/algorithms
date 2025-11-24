@@ -29,11 +29,12 @@ export default class MaxPriorityQueue<Item> extends MaxHeap<Item> {
    * @returns - 0 | 1 | -1
    */
   private internalComparator(left: Item, right: Item): number {
-    if (this.queue.get(left) === this.queue.get(right)) {
+    const leftPriority = this.queue.get(left) ?? 0;
+    const rightPriority = this.queue.get(right) ?? 0;
+    if (leftPriority === rightPriority) {
       return 0;
     }
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return this.queue.get(left)! < this.queue.get(right)! ? -1 : 1;
+    return leftPriority < rightPriority ? -1 : 1;
   }
 
   /**

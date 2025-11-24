@@ -36,4 +36,5 @@ describe("binarySearch", () => {
     expect(binarySearch(sortedArrayOfObjects, { key: 1, value: "" }, comparator)).toBe(0);
     expect(binarySearch(sortedArrayOfObjects, { key: 2, value: "" }, comparator)).toBe(1);
     expect(binarySearch(sortedArrayOfObjects, { key: 3, value: "" }, comparator)).toBe(2);
-  });});
+  });
+});

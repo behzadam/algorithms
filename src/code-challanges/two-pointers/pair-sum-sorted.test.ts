@@ -22,10 +22,7 @@ describe("pairSumSorted", () => {
       target: -5,
       expected: [0, 1],
     },
-  ])(
-    "returns $expected for input $input and target $target",
-    ({ input, target, expected }) => {
-      expect(pairSumSorted(input, target)).toEqual(expected);
-    }
-  );
+  ])("returns $expected for input $input and target $target", ({ input, target, expected }) => {
+    expect(pairSumSorted(input, target)).toEqual(expected);
+  });
 });

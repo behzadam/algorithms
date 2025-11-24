@@ -1,4 +1,4 @@
-import { Pair } from "@/types/pair";
+import type { Pair } from "@/types/pair";
 import { Comparator } from "@/utils";
 import { LinkedList } from "../linked-list/";
 
@@ -14,9 +14,7 @@ export class HashTable<Value> {
 
   constructor(size = 32) {
     // By default compares by value
-    const pairComparator = Comparator.comparing(
-      (pair: Pair<Value>) => pair.value
-    );
+    const pairComparator = Comparator.comparing((pair: Pair<Value>) => pair.value);
     // Create hash table of certain size and fill each bucket with empty linked list.
     this.buckets = Array(size)
       .fill(null)
@@ -124,15 +122,10 @@ export class HashTable<Value> {
    * @returns array of values.
    */
   getValues(): Value[] {
-    return this.buckets.reduce(
-      (values: Value[], bucket: LinkedList<Pair<Value>>) => {
-        const bucketValues = bucket
-          .toArray()
-          .map((linkedListNode) => linkedListNode.value.value);
-        return values.concat(bucketValues as Value);
-      },
-      []
-    );
+    return this.buckets.reduce((values: Value[], bucket: LinkedList<Pair<Value>>) => {
+      const bucketValues = bucket.toArray().map((linkedListNode) => linkedListNode.value.value);
+      return values.concat(bucketValues as Value);
+    }, []);
   }
 
   /**

@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFunction } from "@/utils";
+import { Comparator, type ComparatorFunction } from "@/utils";
 
 /**
  * This class is a base class for Heap.
