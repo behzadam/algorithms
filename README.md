@@ -83,22 +83,19 @@ This repository is a **comprehensive collection** of TypeScript algorithms and d
 
 ### 🔍 Algorithms
 
-#### 🔎 Search Algorithms
-
-- **[Binary Search](src/algorithms/search/binary-search/binary-search.ts)** - Efficient search in sorted arrays
-- **[Linear Search](src/algorithms/search/linear-search/linear-search.ts)** - Simple sequential search
-
-#### 🔄 Sorting Algorithms
-
-- **[Quick Sort](src/algorithms/sort/quick/quick-sort.ts)** - Divide and conquer sorting algorithm
-- **[Bubble Sort](src/algorithms/sort/bubble-sort/bubble-sort.ts)** - Simple comparison-based sort
-- **[Bubble Sort Simple](src/algorithms/sort/bubble-sort/bubble-sort-simple.ts)** - Simplified bubble sort implementation
+| Algorithm              | Category | Description                           | Implementation                                                     |
+| ---------------------- | -------- | ------------------------------------- | ------------------------------------------------------------------ |
+| **Binary Search**      | Search   | Efficient search in sorted arrays     | [View Code](src/algorithms/search/binary-search/binary-search.ts)  |
+| **Linear Search**      | Search   | Simple sequential search              | [View Code](src/algorithms/search/linear-search/linear-search.ts)  |
+| **Quick Sort**         | Sort     | Divide and conquer sorting algorithm  | [View Code](src/algorithms/sort/quick/quick-sort.ts)               |
+| **Bubble Sort**        | Sort     | Simple comparison-based sort          | [View Code](src/algorithms/sort/bubble-sort/bubble-sort.ts)        |
+| **Bubble Sort Simple** | Sort     | Simplified bubble sort implementation | [View Code](src/algorithms/sort/bubble-sort/bubble-sort-simple.ts) |
 
 ### 💻 Coding Challenges
 
-#### 👉 Two Pointers
-
-- **[Pair Sum Sorted](src/code-challanges/two-pointers/pair-sum-sorted.ts)** - Find pairs in sorted array that sum to target
+| Challenge           | Category     | Description                                   | Implementation                                                   |
+| ------------------- | ------------ | --------------------------------------------- | ---------------------------------------------------------------- |
+| **Pair Sum Sorted** | Two Pointers | Find pairs in sorted array that sum to target | [View Code](src/code-challanges/two-pointers/pair-sum-sorted.ts) |
 
 ### 🛠️ Utilities
 
