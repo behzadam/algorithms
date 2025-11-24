@@ -1,6 +1,6 @@
-import { pairSumSortedBruteForce } from "./pair-sum";
+import { pairSumSorted } from "./pair-sum-sorted";
 
-describe("pairSumSortedBruteForce", () => {
+describe("pairSumSorted", () => {
   it.each([
     {
       input: [],
@@ -25,7 +25,7 @@ describe("pairSumSortedBruteForce", () => {
   ])(
     "returns $expected for input $input and target $target",
     ({ input, target, expected }) => {
-      expect(pairSumSortedBruteForce(input, target)).toEqual(expected);
+      expect(pairSumSorted(input, target)).toEqual(expected);
     }
   );
 });
