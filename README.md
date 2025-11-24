@@ -1,3 +1,6 @@
+
+<img width="1280" height="640" alt="github-cover-tech-1764013466854" src="https://github.com/user-attachments/assets/98ef6f60-90f1-4b6f-9eac-37f8f529f3ea" />
+
 # 🚀 TypeScript Algorithms and Data Structures
 
 **A comprehensive collection of algorithms, data structures, and coding challenges implemented in TypeScript**
