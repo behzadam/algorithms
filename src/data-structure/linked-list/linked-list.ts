@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFunction } from "@/utils/comparator";
+import { Comparator, type ComparatorFunction } from "@/utils/comparator";
 import { LinkedListNode } from "./linked-list-node";
 
 /**
@@ -201,15 +201,12 @@ export class LinkedList<Item> {
     let currentNode: LinkedListNode<Item> | null = this.head;
     while (currentNode) {
       // If callback is specified then try to find node by callback.
-      if (callback && callback(currentNode.value)) {
+      if (callback?.(currentNode.value)) {
         return currentNode;
       }
 
       // If value is specified then try to compare by value..
-      if (
-        value !== undefined &&
-        this.comparator.equal(currentNode.value, value)
-      ) {
+      if (value !== undefined && this.comparator.equal(currentNode.value, value)) {
         return currentNode;
       }
 
@@ -224,7 +221,9 @@ export class LinkedList<Item> {
    * @returns LinkedList
    */
   public fromArray(values: Item[]): LinkedList<Item> {
-    values.forEach((value) => this.append(value));
+    for (const value of values) {
+      this.append(value);
+    }
     return this;
   }
 

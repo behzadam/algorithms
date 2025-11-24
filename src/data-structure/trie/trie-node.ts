@@ -1,5 +1,5 @@
 import { HashTable } from "@/data-structure/hash-table";
-import { Nullable } from "@/types";
+import type { Nullable } from "@/types";
 
 /**
  * This class uses Map to implement children and

@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFunction } from "@/utils";
+import { Comparator, type ComparatorFunction } from "@/utils";
 
 /**
  * Sorts the given array using the quicksort algorithm.
@@ -11,10 +11,7 @@ import { Comparator, ComparatorFunction } from "@/utils";
  * @param compareFn - An optional comparison function to use for sorting. If not provided, the default comparison function will be used.
  * @returns The sorted array.
  */
-export function quickSort<Item>(
-  arr: Item[],
-  compareFn?: ComparatorFunction<Item>
-): Item[] {
+export function quickSort<Item>(arr: Item[], compareFn?: ComparatorFunction<Item>): Item[] {
   const comparator = new Comparator(compareFn);
 
   // Optimized version of QuickSort with in-place partitioning that maintains O(log n) space complexity.

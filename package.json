@@ -7,10 +7,12 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ./src --ext .ts",
-    "prettier": "prettier \"**/*.+(json|ts)\"",
-    "format:check": "npm run prettier -- --check",
-    "format:fix": "npm run prettier -- --write",
+    "lint": "biome lint ./src",
+    "lint:fix": "biome lint --write ./src",
+    "format:check": "biome format --write=false ./src",
+    "format:fix": "biome format --write ./src",
+    "check": "biome check ./src",
+    "check:fix": "biome check --write ./src",
     "test": "jest"
   },
   "keywords": [
@@ -22,8 +24,8 @@
   "author": "Behzad Ali Mohammad Zad",
   "license": "MIT",
   "devDependencies": {
+    "@biomejs/biome": "^2.3.7",
     "@types/jest": "^30.0.0",
-    "eslint": "^9.39.1",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3"

@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFunction } from "@/utils";
+import { Comparator, type ComparatorFunction } from "@/utils";
 
 /**
  * Sorts the given array using the bubble sort algorithm.

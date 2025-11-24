@@ -1,4 +1,4 @@
-import { Nullable } from "@/types";
+import type { Nullable } from "@/types";
 
 /**
  * Represents a node in a binary tree data structure.

@@ -9,10 +9,7 @@
  * 1 if left is greater than right.
  *
  */
-export type ComparatorFunction<Item> = (
-  left: Item,
-  right: Item
-) => number | 1 | -1 | 0;
+export type ComparatorFunction<Item> = (left: Item, right: Item) => number | 1 | -1 | 0;
 
 export class Comparator<Item> {
   private _comparator: ComparatorFunction<Item>;

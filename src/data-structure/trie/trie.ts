@@ -1,4 +1,4 @@
-import { Nullable } from "@/types";
+import type { Nullable } from "@/types";
 import { isDefined } from "@/utils/is-defined";
 import TrieNode from "./trie-node";
 

@@ -1,7 +1,7 @@
 import { LinkedListNode } from "./linked-list-node";
 
 type Item = { key: number; value: string };
-let item: Item = { key: 1, value: "test" };
+const item: Item = { key: 1, value: "test" };
 
 describe("LinkedListNode", () => {
   it("creates list node with value", () => {
@@ -39,8 +39,7 @@ describe("LinkedListNode", () => {
 
   it("converts node to string with custom stringifier", () => {
     const node = new LinkedListNode<Item>(item);
-    const toStringCallback = (item: Item) =>
-      `value: ${item.value}, key: ${item.key}`;
+    const toStringCallback = (item: Item) => `value: ${item.value}, key: ${item.key}`;
 
     expect(node.toString(toStringCallback)).toBe("value: test, key: 1");
   });

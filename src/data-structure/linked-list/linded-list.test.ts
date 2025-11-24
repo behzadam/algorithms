@@ -165,9 +165,7 @@ describe("LinkedList", () => {
     expect(node).toBeDefined();
     expect(node?.value.value).toBe(2);
     expect(node?.value.key).toBe("test2");
-    expect(
-      linkedList.find({ callback: (value) => value.key === "test5" })
-    ).toBeNull();
+    expect(linkedList.find({ callback: (value) => value.key === "test5" })).toBeNull();
   });
 
   it("finds node by means of custom compare function", () => {
@@ -197,8 +195,7 @@ describe("LinkedList", () => {
   });
 
   it("finds preferring callback over compare function", () => {
-    const greaterThan = (value: number, compareTo: number) =>
-      value > compareTo ? 0 : 1;
+    const greaterThan = (value: number, compareTo: number) => (value > compareTo ? 0 : 1);
 
     const linkedList = new LinkedList(greaterThan);
     linkedList.fromArray([1, 2, 3, 4, 5]);
